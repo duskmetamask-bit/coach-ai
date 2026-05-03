@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { ClerkProvider, SignInButton, SignUpButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -12,13 +11,9 @@ function NavBar() {
     <nav className="flex items-center justify-between px-6 py-4 border-b border-gray-800">
       <div className="text-xl font-bold text-white">CoachAI</div>
       <div className="flex gap-4 items-center">
-        <SignedOut>
-          <SignInButton />
-          <SignUpButton />
-        </SignedOut>
-        <SignedIn>
-          <UserButton />
-        </SignedIn>
+        <a href="#pricing" className="text-gray-400 hover:text-white text-sm transition">Pricing</a>
+        <a href="#demo" className="text-gray-400 hover:text-white text-sm transition">Demo</a>
+        <a href="#" className="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium rounded-lg transition">Sign In</a>
       </div>
     </nav>
   );
@@ -204,18 +199,14 @@ function Footer() {
 
 export default function Home() {
   return (
-    <ClerkProvider>
-      <html lang="en">
-        <body className="bg-gray-950 text-gray-100 font-sans min-h-screen">
-          <NavBar />
-          <Hero />
-          <SocialProof />
-          <Features />
-          <DemoChat />
-          <Pricing />
-          <Footer />
-        </body>
-      </html>
-    </ClerkProvider>
+    <div className="bg-gray-950 min-h-screen">
+      <NavBar />
+      <Hero />
+      <SocialProof />
+      <Features />
+      <DemoChat />
+      <Pricing />
+      <Footer />
+    </div>
   );
 }
